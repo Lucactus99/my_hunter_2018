@@ -7,7 +7,13 @@
 
 CC      =       gcc
 
-SRC     =	main.c
+SRC     =	main.c \
+		temporary.c \
+		temporary2.c \
+		temporary3.c \
+		my_strcmp.c \
+		my_putchar.c \
+		my_putstr.c
 
 OBJ     =       $(SRC:.c=.o)
 

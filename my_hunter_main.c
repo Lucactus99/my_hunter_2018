@@ -14,9 +14,11 @@ int rand_a_b(int a, int b)
 
 void help(void)
 {
-    my_putstr("USAGE\n");
+    my_putstr("\nUSAGE\n");
     my_putstr("\t./hunter\n");
-    my_putstr("DESCRIPTION\n");
+    my_putstr("\nDESCRIPTION\n");
+    my_putstr("\tUse your mouse to shoot the duck by clicking on him\n");
+    my_putstr("\tbut be careful you only have 3 bullets in your gun.\n\n");
 }
 
 void move_rect(struct sfHunter *sf, int offset, int max_value)

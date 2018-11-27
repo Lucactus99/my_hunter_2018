@@ -12,11 +12,11 @@ int game_over(struct sfHunter *sf)
     int value = 0;
 
     sfRenderWindow_setMouseCursorVisible(sf->window, sfTrue);
-    sf->bouton = sfTexture_createFromFile("croix.png", NULL);
+    sf->bouton = sfTexture_createFromFile("images/croix.png", NULL);
     sfSprite_setTexture(sf->spriteBouton, sf->bouton, sfTrue);
     sfSprite_setScale(sf->spriteBouton, sf->scaleDuck);
     sfSprite_setPosition(sf->spriteBouton, sf->positionBouton);
-    sf->boutonRestart = sfTexture_createFromFile("restart.png", NULL);
+    sf->boutonRestart = sfTexture_createFromFile("images/restart.png", NULL);
     sfSprite_setTexture(sf->spriteBoutonRestart, sf->boutonRestart, sfTrue);
     sfSprite_setScale(sf->spriteBoutonRestart, sf->scaleDuck);
     sfSprite_setPosition(sf->spriteBoutonRestart, sf->positionRestart);
@@ -33,7 +33,7 @@ int menu(struct sfHunter *sf)
     int value = 0;
 
     sf->livesInt = 3;
-    sf->bouton = sfTexture_createFromFile("boutonjouer.png", NULL);
+    sf->bouton = sfTexture_createFromFile("images/boutonjouer.png", NULL);
     sfSprite_setTexture(sf->spriteBouton, sf->bouton, sfTrue);
     sfSprite_setScale(sf->spriteBouton, sf->scaleDuck);
     sfSprite_setPosition(sf->spriteBouton, sf->positionBouton);

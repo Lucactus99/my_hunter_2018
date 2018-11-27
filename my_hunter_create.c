@@ -29,9 +29,9 @@ void create_sf(struct sfHunter *sf, sfVideoMode mode)
 
 void create_sf2(struct sfHunter *sf)
 {
-    sf->font = sfFont_createFromFile("arial.ttf");
-    sf->soundShot = sfMusic_createFromFile("soundShot.ogg");
-    sf->sound = sfMusic_createFromFile("sound.ogg");
+    sf->font = sfFont_createFromFile("src/arial.ttf");
+    sf->soundShot = sfMusic_createFromFile("music/soundShot.ogg");
+    sf->sound = sfMusic_createFromFile("music/sound.ogg");
     sf->text = sfText_create();
     sfText_setString(sf->text, "50");
     sf->score = sfText_create();

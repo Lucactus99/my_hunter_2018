@@ -62,7 +62,7 @@ void turn_duck(struct sfHunter *sf)
 {
     if (sf->random == rand_a_b(0, 20) || sf->positionSprite.x > 700.0) {
         if (sf->offset.x != 9.0 && sf->offset.x != 0.0) {
-            sf->texture = sfTexture_createFromFile("spritesheet_reversed.png",
+            sf->texture = sfTexture_createFromFile("images/spritesheet_reversed.png",
             NULL);
             sfSprite_setTexture(sf->sprite, sf->texture, sfFalse);
             sf->offset.x = -10.0;
@@ -70,7 +70,7 @@ void turn_duck(struct sfHunter *sf)
     }
     if (sf->random == rand_a_b(0, 20) || sf->positionSprite.x < 50.0) {
         if (sf->offset.x != 9.0 && sf->offset.x != 0.0) {
-            sf->texture = sfTexture_createFromFile("spritesheet.png", NULL);
+            sf->texture = sfTexture_createFromFile("images/spritesheet.png", NULL);
             sfSprite_setTexture(sf->sprite, sf->texture, sfFalse);
             sf->offset.x = 10.0;
         }

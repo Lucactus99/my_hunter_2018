@@ -9,14 +9,14 @@
 
 void create_sfTexture(struct sfHunter *sf)
 {
-    sf->texture = sfTexture_createFromFile("spritesheet.png", NULL);
+    sf->texture = sfTexture_createFromFile("images/spritesheet.png", NULL);
     if (!sf->texture)
         exit(84);
-    sf->background = sfTexture_createFromFile("background.png", NULL);
-    sf->backgroundMenu = sfTexture_createFromFile("groundMenu.png", NULL);
-    sf->ground = sfTexture_createFromFile("ground.png", NULL);
-    sf->bouton = sfTexture_createFromFile("boutonjouer.png", NULL);
-    sf->scope = sfTexture_createFromFile("scope.png", NULL);
+    sf->background = sfTexture_createFromFile("images/background.png", NULL);
+    sf->backgroundMenu = sfTexture_createFromFile("images/groundMenu.png", NULL);
+    sf->ground = sfTexture_createFromFile("images/ground.png", NULL);
+    sf->bouton = sfTexture_createFromFile("images/boutonjouer.png", NULL);
+    sf->scope = sfTexture_createFromFile("images/scope.png", NULL);
 }
 
 void create_sfSprite(struct sfHunter *sf)

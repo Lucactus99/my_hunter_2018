@@ -27,11 +27,21 @@ void check_position(struct sfHunter *sf)
         else if (sf->positionSprite.y < 50.0)
             sf->offset.y = 20.0;
     }
+    if (sf->positionSprite.y > 1100.0) {
+        sfSprite_setPosition(sf->sprite, sf->positionGround);
+        sf->offset.x = 10.0;
+        sf->offset.y = 20.0;
+        sfSprite_setRotation(sf->sprite, 0);
+        sf->loop = 0;
+        sf->positionText.x = -110;
+        sf->positionText.y = -110;
+        sfText_setPosition(sf->text, sf->positionText);
+    }
 }
 
 void turn_duck(struct sfHunter *sf)
 {
-    if (sf->random == 2 || sf->positionSprite.x > 650) {
+    if (sf->random == rand_a_b(0, 20) || sf->positionSprite.x > 700.0) {
         if (sf->offset.x != 9.0 && sf->offset.x != 0.0) {
             sf->texture = sfTexture_createFromFile("spritesheet_reversed.png",
             NULL);
@@ -39,7 +49,7 @@ void turn_duck(struct sfHunter *sf)
             sf->offset.x = -10.0;
         }
     }
-    if (sf->random == 6 || sf->positionSprite.x < 50) {
+    if (sf->random == rand_a_b(0, 20) || sf->positionSprite.x < 50.0) {
         if (sf->offset.x != 9.0 && sf->offset.x != 0.0) {
             sf->texture = sfTexture_createFromFile("spritesheet.png", NULL);
             sfSprite_setTexture(sf->sprite, sf->texture, sfFalse);
@@ -54,8 +64,8 @@ void create_sfTexture(struct sfHunter *sf)
     if (!sf->texture)
         exit(84);
     sf->background = sfTexture_createFromFile("background.png", NULL);
+    sf->backgroundMenu = sfTexture_createFromFile("groundMenu.png", NULL);
     sf->ground = sfTexture_createFromFile("ground.png", NULL);
-    sf->tree = sfTexture_createFromFile("tree.png", NULL);
     sf->bouton = sfTexture_createFromFile("boutonjouer.png", NULL);
 }
 
@@ -64,6 +74,6 @@ void create_sfSprite(struct sfHunter *sf)
     sf->sprite = sfSprite_create();
     sf->spriteGround = sfSprite_create();
     sf->spriteBackground = sfSprite_create();
-    sf->spriteTree = sfSprite_create();
+    sf->spriteBackgroundMenu = sfSprite_create();
     sf->spriteBouton = sfSprite_create();
 }

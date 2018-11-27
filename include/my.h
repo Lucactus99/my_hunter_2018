@@ -27,15 +27,18 @@ struct sfHunter {
     sfRenderWindow* window;
     sfTexture *texture;
     sfTexture *background;
+    sfTexture *backgroundMenu;
     sfTexture *ground;
-    sfTexture *tree;
     sfTexture *bouton;
+    sfTexture *boutonQuit;
     sfSprite *sprite;
     sfSprite *spriteBackground;
+    sfSprite *spriteBackgroundMenu;
     sfSprite *spriteGround;
-    sfSprite *spriteTree;
     sfSprite *spriteBouton;
     sfText *text;
+    sfText *lives;
+    sfText *score;
     sfFont *font;
     sfEvent event;
     sfIntRect rect;
@@ -43,7 +46,9 @@ struct sfHunter {
     sfVector2f offset;
     sfVector2f positionTree;
     sfVector2f positionGround;
+    sfVector2f positionBouton;
     sfVector2f positionText;
+    sfVector2f positionLives;
     sfVector2f scaleGround;
     sfVector2u size;
     sfClock *clock;
@@ -52,6 +57,10 @@ struct sfHunter {
     int loop;
     int angle;
     int random;
+    int scoreInt;
+    int livesInt;
+    char *scoreStr;
+    char *livesStr;
 };
 
 void my_putchar(char);
@@ -71,5 +80,7 @@ void opened_window(struct sfHunter *);
 void turn_duck(struct sfHunter *);
 int rand_a_b(int, int);
 void help();
+int menu(struct sfHunter *);
+int analyse_events_menu(struct sfHunter *sf);
 
 #endif //MY_H_

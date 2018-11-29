@@ -24,10 +24,10 @@ void create_sf(struct sfHunter *sf, sfVideoMode mode)
     sfSprite_scale(sf->spriteBackgroundMenu, sf->scaleDuck);
     sfSprite_setTexture(sf->spriteBouton, sf->bouton, sfTrue);
     sfSprite_setTexture(sf->spriteScope, sf->scope, sfTrue);
-    create_sf2(sf);
+    create_sf_2(sf);
 }
 
-void create_sf2(struct sfHunter *sf)
+void create_sf_2(struct sfHunter *sf)
 {
     sf->font = sfFont_createFromFile("src/arial.ttf");
     sf->soundShot = sfMusic_createFromFile("music/soundShot.ogg");
@@ -50,7 +50,7 @@ void create_sf2(struct sfHunter *sf)
     sfText_setPosition(sf->over, sf->positionOver);
 }
 
-void create_sfVector(struct sfHunter *sf)
+void create_sfvector(struct sfHunter *sf)
 {
     sf->offset.x = 10.0;
     sf->offset.y = 20.0;
@@ -64,10 +64,10 @@ void create_sfVector(struct sfHunter *sf)
     sf->positionText.y = -100;
     sf->positionLives.x = 760;
     sf->positionLives.y = 0;
-    create_sfVector2(sf);
+    create_sfvector_2(sf);
 }
 
-void create_sfVector2(struct sfHunter *sf)
+void create_sfvector_2(struct sfHunter *sf)
 {
     sf->positionRestart.x = 335.0;
     sf->positionRestart.y = 350.0;

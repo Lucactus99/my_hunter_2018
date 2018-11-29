@@ -7,7 +7,7 @@
 
 #include "my.h"
 
-void manage_mouse_click2(struct sfHunter *sf, sfVector2i position)
+void manage_mouse_click_2(struct sfHunter *sf, sfVector2i position)
 {
     if (position.y > sf->positionSprite.y &&
     position.y < sf->positionSprite.y + 100) {
@@ -26,13 +26,13 @@ void manage_mouse_click(struct sfHunter *sf)
     sfMusic_play(sf->soundShot);
     if (position.x > sf->positionSprite.x &&
     position.x < sf->positionSprite.x + 100) {
-        manage_mouse_click2(sf, position);
+        manage_mouse_click_2(sf, position);
     } else {
         sf->livesInt--;
     }
 }
 
-int analyse_events_over2(struct sfHunter *sf, int value)
+int analyse_events_over_2(struct sfHunter *sf, int value)
 {
     if (value == 1)
         sfRenderWindow_close(sf->window);
@@ -49,7 +49,7 @@ int analyse_events_over(struct sfHunter *sf)
         sfRenderWindow_close(sf->window);
     if (sf->event.type == sfEvtMouseButtonPressed) {
         value = check_button_pressed(sf);
-        return (analyse_events_over2(sf, value));
+        return (analyse_events_over_2(sf, value));
     }
     return (0);
 }

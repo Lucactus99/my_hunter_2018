@@ -21,19 +21,31 @@ void help(void)
     my_putstr("\tbut be careful you only have 3 bullets in your gun.\n\n");
 }
 
-void move_rect(struct sfHunter *sf, int offset, int max_value)
+int window_loop(struct sfHunter *sf)
 {
-    sf->rect.left += offset;
-    if (sf->rect.left == max_value) {
-        sf->rect.left = 0;
+    int value = 0;
+
+    while (sfRenderWindow_isOpen(sf->window)) {
+        sfMusic_play(sf->sound);
+        if (sf->livesInt == 0) {
+            value = game_over(sf);
+            if (value == 3) {
+                sf->scoreInt = 0;
+                value = 0;
+            }
+        }
+        if (value == 0)
+            value = menu(sf);
+        if (value == 1)
+            opened_window(sf);
     }
+    return (0);
 }
 
 int main(int ac, char **av)
 {
     sfVideoMode mode = {800, 600, 32};
     struct sfHunter *sf = malloc(sizeof(struct sfHunter));
-    int value = 0;
 
     sf->livesStr = malloc(sizeof(char));
     sf->loop = 0;
@@ -44,22 +56,12 @@ int main(int ac, char **av)
         help();
         return (84);
     }
-    create_sfVector(sf);
-    create_sfSprite(sf);
-    create_sfTexture(sf);
+    create_sfvector(sf);
+    create_sfsprite(sf);
+    if (create_sftexture(sf) == 84)
+        return (84);
     create_sf(sf, mode);
-    while (sfRenderWindow_isOpen(sf->window)) {
-        sfMusic_play(sf->sound);
-        if (sf->livesInt == 0) {
-            value = game_over(sf);
-            if (value == 3)
-                value = 0;
-        }
-        if (value == 0)
-            value = menu(sf);
-        if (value == 1)
-            opened_window(sf);
-    }
+    window_loop(sf);
     destroy_sf(sf);
     return (0);
 }

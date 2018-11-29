@@ -7,6 +7,14 @@
 
 #include "my.h"
 
+void move_rect(struct sfHunter *sf, int offset, int max_value)
+{
+    sf->rect.left += offset;
+    if (sf->rect.left == max_value) {
+        sf->rect.left = 0;
+    }
+}
+
 int game_over(struct sfHunter *sf)
 {
     int value = 0;
